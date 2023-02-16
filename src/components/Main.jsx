@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { Navbar } from "./";
+import PuppyDetails from "../PuppyDetails";
 const BASE = 'https://fsa-puppy-bowl.herokuapp.com/api/2301-FTB-ET-WEB-FT/players';
 
 const Main = () => {
 const [puppies, setPuppies] = useState({});
+
 
 async function getPuppies(){
     // const response = await fetch(BASE);
@@ -29,6 +31,7 @@ useEffect(() => {
     return(
         <div id="main">
             <Navbar />
+            <PuppyDetails puppies={puppies}/>
         </div>
     )
 }
