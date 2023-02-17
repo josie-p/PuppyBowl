@@ -24,16 +24,17 @@ async function getPuppies(){
     
 }
 
-async function getClickedPuppy(puppyId){
-    try{
-        const response = await fetch(`${BASE}/${puppyId}`);
-        const result = await response.json();
-        const puppyInfo = result.data.player;
-        setClickedPuppy(puppyInfo);
-    }catch(error){
-console.log(error)
-    }
-}
+// async function getClickedPuppy(puppyId){
+//     try{
+//         console.log(puppyId)
+//         const response = await fetch(`${BASE}/${puppyId}`);
+//         const result = await response.json();
+//         const puppyInfo = result.data.player;
+//         setClickedPuppy(puppyInfo);
+//     }catch(error){
+// console.log(error)
+//     }
+// }
 
 useEffect(() => {
     getPuppies();
@@ -44,7 +45,7 @@ useEffect(() => {
     return(
         <div id="main">
             <Navbar />
-            <PuppyDetails puppies={puppies} clickedPuppy={clickedPuppy} setClickedPuppy={setClickedPuppy} getClickedPuppy={getClickedPuppy}/>
+            <PuppyDetails puppies={puppies} clickedPuppy={clickedPuppy} setClickedPuppy={setClickedPuppy}  />
         </div>
     )
 }

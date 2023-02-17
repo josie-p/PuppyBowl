@@ -2,16 +2,28 @@ import React from "react";
 import {SinglePuppy} from './';
 
 const PuppyDetails = (props) =>{
-
+    
+    async function getClickedPuppy(puppyId){
+        try{
+            console.log(puppyId)
+            const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2301-FTB-ET-WEB-FT/players/${puppyId}`);
+            const result = await response.json();
+            const puppyInfo = result.data.player;
+            props.setClickedPuppy(puppyInfo);
+        }catch(error){
+    console.log(error)
+        }
+    }
+    
     const puppies = props.puppies;
     const clickedPuppy = props.clickedPuppy;
 
     // console.log(clickedPuppy, 'this is clickedPuppy');
 
     function handleClick(id){
-        // console.log(puppy);
+        console.log(id);
         // console.log(clickedPuppy, 'this is clickedPuppy');
-     props.getClickedPuppy(id);
+     getClickedPuppy(id);
      return(
 
         <h1>Clicked Puppy: {clickedPuppy}</h1>
