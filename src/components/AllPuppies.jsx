@@ -1,28 +1,42 @@
-import React from "react";
-import {Search} from '.';
+import React, {useState} from "react";
 import {Link, useParams, useOutletContext} from 'react-router-dom';
 
 const AllPuppies = (props) =>{
     
     const puppies = useOutletContext();
+    const [searchVar, setSearchVar] = useState('');
+    const [puppyCardArr] = useState(document.getElementsByClassName('puppyCard'));
 
-    // const puppies = props.puppies;
-    // const clickedPuppy = props.clickedPuppy;
-    // const getClickedPuppy = props.getClickedPuppy;
+    function findPuppy(searchVar){
 
-    // function handleClick(id){
-    //     console.log(id);
-    //  getClickedPuppy(id);
-    //  return(
+        console.log(puppyCardArr, 'the puppyCardArr');
 
-    //     <h1>Clicked Puppy: {clickedPuppy}</h1>
-    //  )
-    // }
 
-    // console.log(puppies, 'puppy names from puppy details');
+        return(
+            puppies.map((puppy, idx) => {
+                if(puppy.name === searchVar){
+                    console.log(puppy, puppy.name, searchVar, 'they match!');
+                }else{
+                    puppyCardArr[idx].style.display = 'none';
+                }
+            })
+        )}
+
     return(
        <div className="allPuppies">
-        <Search puppies={puppies}/>
+       <div className="searchForm">
+              <form>
+            <label>
+                name: 
+                <input type = "text"  id='searchID' onChange={(event) => {setSearchVar(event.target.value); console.log(event.target.value); }}/>
+            </label>
+            <button onClick={(event) => {
+                event.preventDefault();
+                findPuppy(searchVar);
+                console.log(searchVar)}}>Search</button>
+                <button>Clear Search</button>
+        </form>
+        </div>
         {
         puppies.map((puppy, idx) => {
             return(  
@@ -33,9 +47,9 @@ const AllPuppies = (props) =>{
                 <img src={`${puppy.imageUrl}`} alt={`picture of ${puppy.name} the puppy`} className='puppyImg'/>
               <Link to={`${puppy.id}`}>See Details</Link>
             </div>) 
-        }) 
+        })
         } 
-        </div> 
+        </div>
     )
 }
 export default AllPuppies;

@@ -24,18 +24,18 @@ async function getPuppies(){
     
 }
 
-async function getClickedPuppy(puppyId){
-    try{
-        console.log(puppyId)
-        const response = await fetch(`${BASE}/${puppyId}`);
-        const result = await response.json();
-        const puppyInfo = result.data.player;
-        // console.log(puppyInfo, 'puppyInfo');
-        setClickedPuppy(puppyInfo);
-    }catch(error){
-console.log(error)
-    }
-}
+// async function getClickedPuppy(puppyId){
+//     try{
+//         console.log(puppyId)
+//         const response = await fetch(`${BASE}/${puppyId}`);
+//         const result = await response.json();
+//         const puppyInfo = result.data.player;
+//         // console.log(puppyInfo, 'puppyInfo');
+//         setClickedPuppy(puppyInfo);
+//     }catch(error){
+// console.log(error)
+//     }
+// }
 
 useEffect(() => {
     getPuppies();
