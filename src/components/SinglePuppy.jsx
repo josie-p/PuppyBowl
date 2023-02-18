@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 const BASE = 'https://fsa-puppy-bowl.herokuapp.com/api/2301-FTB-ET-WEB-FT/players';
 
 const SinglePuppy = (props) => {
-  const puppy = props.puppies;  
   const clickedPuppy = props.clickedPuppy;
   const [singlePuppy, setSinglePuppy] = useState({});
 console.log(clickedPuppy, 'clicked!')
