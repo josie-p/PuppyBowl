@@ -1,26 +1,28 @@
 import React from "react";
 import {SinglePuppy} from '.';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useOutletContext} from 'react-router-dom';
 
 const AllPuppies = (props) =>{
     
-    const puppies = props.puppies;
+    const puppies = useOutletContext();
+
+    // const puppies = props.puppies;
     // const clickedPuppy = props.clickedPuppy;
-    const getClickedPuppy = props.getClickedPuppy;
+    // const getClickedPuppy = props.getClickedPuppy;
 
-    function handleClick(id){
-        console.log(id);
-     getClickedPuppy(id);
-     return(
+    // function handleClick(id){
+    //     console.log(id);
+    //  getClickedPuppy(id);
+    //  return(
 
-        <h1>Clicked Puppy: {clickedPuppy}</h1>
-     )
-    }
+    //     <h1>Clicked Puppy: {clickedPuppy}</h1>
+    //  )
+    // }
 
     // console.log(puppies, 'puppy names from puppy details');
     return(
-        <div className="allPuppies">
-        { 
+       <div className="allPuppies"> 
+        {
         puppies.map((puppy, idx) => {
             return(  
             <div key={`the unique key is ${idx}`} className = "puppyCard">
@@ -28,19 +30,19 @@ const AllPuppies = (props) =>{
                 <h2>{puppy.name}</h2><p>{puppy.id}</p>
                 </div>
                 <img src={`${puppy.imageUrl}`} alt={`picture of ${puppy.name} the puppy`} className='puppyImg'/>
-              <p> {puppy.breed}</p>
+              {/* <p> {puppy.breed}</p> */}
               {/* <button onClick={() => {
                 getClickedPuppy(puppy.id)
               }}>See Details</button> */}
-              <Link to={`${SinglePuppy}/${puppy.id}`}>See Details</Link>
+              <Link to={`${puppy.id}`}>See Details</Link>
               {/* <Link to={`${puppy.id}`}>See Details!</Link> */}
-            </div>)
-        })
-        }
+            </div>) 
+        }) 
+        } 
         {/* {console.log(clickedPuppy, 'outside clicked puppy')} */}
-        <SinglePuppy puppies={puppies} />
+        {/* <SinglePuppy puppies={puppies} /> */}
 
-        </div>
+        </div> 
     )
 }
 export default AllPuppies;

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Navbar, SinglePuppy } from "./";
 import {AllPuppies} from "./";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 const BASE = 'https://fsa-puppy-bowl.herokuapp.com/api/2301-FTB-ET-WEB-FT/players';
 
 const Main = () => {
@@ -46,10 +46,12 @@ useEffect(() => {
     return(
         <div id="main">
             {console.log(clickedPuppy, 'puppyInfo')}
-            <Outlet/>
+            
             <Navbar />
-            <AllPuppies puppies={puppies}  getClickedPuppy={getClickedPuppy} />
-            <SinglePuppy puppies={puppies} clickedPuppy={clickedPuppy} setClickedPuppy={setClickedPuppy} getClickedPuppy={getClickedPuppy}/>
+            <Outlet context={puppies}/>
+            {/* <Outlet puppies={puppies} clickedPuppy={clickedPuppy} setClickedPuppy={setClickedPuppy} getClickedPuppy={getClickedPuppy} /> */}
+            {/* <AllPuppies puppies={puppies}  getClickedPuppy={getClickedPuppy} />
+            <SinglePuppy puppies={puppies} clickedPuppy={clickedPuppy} setClickedPuppy={setClickedPuppy} getClickedPuppy={getClickedPuppy}/> */}
         </div>
     )
 }

@@ -9,9 +9,9 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path='/' element={<Main/>}>
-            <Route path="dogs">
-                <Route index element={<AllPuppies/>} />
-                    <Route path=":id" element={<SinglePuppy />}/>
+            <Route >
+                <Route index element={<AllPuppies />} />
+                <Route path=":id" element={<SinglePuppy />}/>
             </Route>
             </Route>
 
