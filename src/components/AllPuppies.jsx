@@ -23,21 +23,24 @@ const AllPuppies = (props) =>{
         )}
 
     return(
-       <div className="allPuppies">
-       <div className="searchForm">
-              <form>
+
+        <div className="homePage">
+              <div className="searchForm">
+              <form className="formSearch">
             <label>
-                name: 
-                <input type = "text"  id='searchID' onChange={(event) => {setSearchVar(event.target.value); console.log(event.target.value); }}/>
+                Search For Puppy By Name:
+                {/* <input type = "text"  id='searchID' onChange={(event) => {setSearchVar(event.target.value); console.log(event.target.value); }}/> */}
             </label>
+            <input type='text' id='searchID' onChange={(event) => {setSearchVar(event.target.value); console.log(event.target.value); }}/>
             <button onClick={(event) => {
                 event.preventDefault();
                 findPuppy(searchVar);
                 console.log(searchVar)}}>Search</button>
                 <button>Clear Search</button>
-        </form>
-        </div>
-        {
+            </form>
+            </div>
+            <div className="allPuppies">
+            {
         puppies.map((puppy, idx) => {
             return(  
             <div key={`the unique key is ${idx}`} className = "puppyCard">
@@ -49,6 +52,7 @@ const AllPuppies = (props) =>{
             </div>) 
         })
         } 
+            </div>
         </div>
     )
 }
