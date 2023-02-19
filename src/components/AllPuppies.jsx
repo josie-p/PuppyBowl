@@ -10,13 +10,12 @@ const AllPuppies = (props) =>{
     function findPuppy(searchVar){
 
         console.log(puppyCardArr, 'the puppyCardArr');
-
-
+        
         return(
             puppies.map((puppy, idx) => {
-                if(puppy.name === searchVar){
+                 if(puppy.name === searchVar){
                     console.log(puppy, puppy.name, searchVar, 'they match!');
-                }else{
+                }else {
                     puppyCardArr[idx].style.display = 'none';
                 }
             })

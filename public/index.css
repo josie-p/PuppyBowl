@@ -13,6 +13,7 @@ colors:
 
 body {
     margin: 0;
+    background-color: #9bb1ff;
 }
 
 #navbar {
@@ -22,9 +23,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
-    max-height: 10%;
-    min-height: 40px;
+    /* flex-grow: 1; */
+    /* max-height: 10%; */
+    /* min-height: 40px; */
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
     font-size: 20pt;
@@ -104,10 +105,59 @@ border: 3px dashed #BFD7FF;
 .singlePuppyImg{
     height: 520px;
     width: 480px;
+    border-radius: 35px;
+    border: dashed 5px #F4D35E;
+    /* margin: 5px; */
+    padding: 5px;
 }
 
-.searchedPupResult{
-    border: 5px solid hotpink;
+.puppy{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    align-content: center;
+    justify-content: center;
+    max-width: 600px;
+    font-family: 'Outfit', sans-serif;
+    /* font-weight: 500; */
+    /* font-weight: 900;
+    font-size: 20pt;
+    letter-spacing: 4px; */
+}
+
+.singlePuppyIntro{
+    margin: 15px;
+    text-align: center;
+    color: #0d3b66;
+    text-decoration: underline dashed 3px #f4d35e;
+    letter-spacing: 2px;
+}
+
+.singlePuppyIntro > h1{
+    animation: wobble;
+    animation-duration: 2s;
+}
+
+.infoCard{
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    background-color: #0d3b66;
+    color: #E2FDFF;
+    border-radius: 35px;
+    padding: 3rem;
+    /* flex: 1; */
+    max-width: 500px;
+    margin: 15px;
+    font-weight: 500;
+}
+
+.category{
+    color: #f4d35e;
 }
 
 
@@ -116,6 +166,7 @@ border: 3px dashed #BFD7FF;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 
 label{
@@ -126,4 +177,98 @@ label{
 button{
     margin: 5px;
     padding: 12px;
+    border-radius: 35px;
+    border: none;
+    background-color: #5465ff;
+    color: #E2FDFF;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+}
+
+button:hover{
+    box-shadow: 2px 2px 3px #E2FDFF;
+}
+
+button:active{
+    color: #F4D35E;
+}
+
+input[type='text']{
+    background-color: #FAF0CA;
+    color: #0d3b66;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 15pt;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 35px;
+}
+
+.puppy > a{
+    color: #5465ff;
+    padding: 10px;
+    background-color: #f4d35e;
+    border-radius: 50%;
+    text-decoration: none;
+    max-height: 40px;
+    max-width: 65px;
+    margin: 5px;
+    text-align: center;
+}
+
+.puppy > a:active{
+    color: #F4D35E;
+    background-color: #5465ff;
+}
+
+
+/* media queries */
+@media screen and  (max-width: 540px){
+    #navbar {
+        /* background-color: #0D3B66; */
+        font-size: 15pt;
+        letter-spacing: 4px;
+    }
+
+    .allPuppies{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .formSearch{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .puppy{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .singlePuppyImg{
+        height: 200px;
+        width: 180px;
+
+    }
+
+    .infoCard{
+        padding: 0.5rem;
+        max-width: 250px;
+    }
+
+    .puppy > a{
+        color: #5465ff;
+        padding: 10px;
+        background-color: #f4d35e;
+        border-radius: 35px;
+        text-decoration: none;
+        max-height: 40px;
+        max-width: 45px;
+        margin: 5px;
+        text-align: center;
+    }
 }
